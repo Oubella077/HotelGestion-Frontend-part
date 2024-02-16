@@ -1,0 +1,291 @@
+<app-illustration (selectevalue)="filter($event)" class="mb-5" ></app-illustration>
+<div class="container">
+  <span class="mt-5 pt-5 text-start  text-dark fw-normal " style="height: 300px; width: 350px;">
+    <h2> <span class=" ms-2">Our must popular Hotels</span> <br>
+      <span style="color: #6394ee;">Reserve</span> Online!
+    </h2>
+  </span>
+  <div *ngIf="hotels1">
+    <div class="row ">
+      <div class="col align-self-end">
+        <!-- Button trigger modal -->
+        <button type="button"  class="btn btn-success float-end  w-25" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
+          <i class="fa fa-plus" ></i> Add Hotel
+        </button>
+        
+      </div>
+    </div>
+    <div class="row mt-1 mb-3">
+      <div class="col-lg-3 col-md-6  col-sm-12 mt-3 " *ngFor="let item of hotels1; let i=index">
+        <!-- <span class="float-end price-hp">{{item.price}}</span> -->
+        <!-- {{i+1 | json}}        -->
+        <div class="card h-60 shadow-sm position-relative">
+          <div class="dropdown position-absolute top-0 end-0" style="cursor:pointer;">
+            <button class="btn btn-sm" data-bs-toggle="dropdown" aria-expanded="false" style="border: none;">
+              <i class="fa-sharp fa-solid fa-ellipsis-vertical fs-5"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item " (click)="selectitem(item)">
+                <span data-bs-toggle="modal" data-bs-target="#exampleModal1"><i
+                    class="fa fa-pen text-primary "></i>
+                    <strong> Edite</strong>
+                </span>
+              </li>
+              <li class="dropdown-item" (click)="Delete(item.id)">
+                <i class="fa fa-trash text-danger"></i>
+                <strong> Delete</strong>
+              </li>
+            </ul>
+          </div>
+          <!-- routerLink="/product/view" [state]="{ data: this.item}" -->
+          <span routerLink="/hotel/view" [state]="{data: this.item}">
+            <img src="/assets/0{{i+1}}.PNG" class="card-img-top" style="height: 250px; cursor: pointer;" alt=" "></span>
+          <!-- <div class="label-top shadow-sm fs-5 fw-3 mx-auto">{{}}</div> -->
+          <!-- product modal-->
+          <!-- product modal end-->
+          <div class="card-body">
+            <div class="w-100 d-flex justify-content-between">
+              <span>
+                Price : {{item.price}}
+                <span  class="small text-muted ">
+                  <i class="small fa-solid fa-rectangle-ad"></i>
+                </span>
+              </span>
+              <span class="d-flex ms-4 mt-1">
+                <i class="fa fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-regular fa-star"></i>
+              </span>
+            </div>
+            <div class="">
+              <!-- <span class="float-start badge rounded-pill bg-success">{{item.prix}}</span>  -->
+              <!-- <span *ngIf="item.ispromotion" class="small text-muted " ><i class="small fa-solid fa-rectangle-ad"></i>  </span> -->
+            </div>
+            <h5 class="card-title"></h5>
+            <div class="text-center my-2">
+              <p>{{item.hotelname}}</p>
+              <p>{{item.adress }}</p>
+              <button type="button" class="btn btn-sm btn-primary">
+                 Voir les disponibilites </button>
+              <!-- <button *ngIf=" " type="button" class="btn btn-sm btn-warning" data-toggle="modal" -->
+              <!-- data-target="#Modal2"> Make a Reservation </button> -->
+              <!-- Modal login -->
+              <!-- <div class="modal modal" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabell"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabell"><strong>Information</strong></h5>
+                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Think To Logging Please!</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <!-- end Modal login -->
+            </div>
+            <div class=" d-flex justify-content-between mb-1">
+              <span class="float-start"><i class="far fa-question-circle"></i></span>
+              <!-- <span class="float-end"><i class="fas fa-plus btn" (click)="addtocart(item,i);">
+                </i></span> -->
+              <span (click)="favorit(item)">
+                <i *ngIf="!item.isFavorite" class="fa-regular fa-heart" style="font-size:22px;"></i>
+                <i *ngIf="item.isFavorite" class="fa fa-heart" style="font-size:22px;color:red"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  
+  <div class="modal " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-add-hotel ></app-add-hotel>      
+        </div>
+        <!-- <div class="modal-footer" disabled>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal " id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">   
+          <app-editehotel  [data]="hotel"></app-editehotel>
+        </div>
+        <!-- <div class="modal-footer" disabled>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for search -->
+  <div  class="modal " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row mt-1 mb-3">
+            <div class="col-lg-3 col-md-6  col-sm-12 mt-3 " *ngFor="let item of hotels; let i=index">
+              <!-- <span class="float-end price-hp">{{item.price}}</span> -->
+              <!-- {{i+1 | json}}        -->
+              <div class="card h-60 shadow-sm position-relative">
+                <div class="dropdown position-absolute top-0 end-0" style="cursor:pointer;">
+                  <button class="btn btn-sm" data-bs-toggle="dropdown" aria-expanded="false" style="border: none;">
+                    <i class="fa-sharp fa-solid fa-ellipsis-vertical fs-5"></i>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-item " (click)="selectitem(item)">
+                      <span data-bs-toggle="modal" data-bs-target="#exampleModal1"><i
+                          class="fa fa-pen text-primary "></i>
+                          <strong> Edite</strong>
+                      </span>
+                    </li>
+                    <li class="dropdown-item" (click)="Delete(item.id)">
+                      <i class="fa fa-trash text-danger"></i>
+                      <strong> Delete</strong>
+                    </li>
+                  </ul>
+                </div>
+                <!-- routerLink="/product/view" [state]="{ data: this.item}" -->
+                <span routerLink="/hotel/view" [state]="{data: this.item}">
+                  <img src="/assets/0{{i+1}}.PNG" class="card-img-top" style="height: 250px; cursor: pointer;" alt=" "></span>
+                <!-- <div class="label-top shadow-sm fs-5 fw-3 mx-auto">{{}}</div> -->
+                <!-- product modal-->
+                <!-- product modal end-->
+                <div class="card-body">
+                  <div class="w-100 d-flex justify-content-between">
+                    <span>
+                      Price : {{item.price}}
+                      <span  class="small text-muted ">
+                        <i class="small fa-solid fa-rectangle-ad"></i>
+                      </span>
+                    </span>
+                    <span class="d-flex ms-4 mt-1">
+                      <i class="fa fa-star text-warning"></i>
+                      <i class="fa-solid fa-star text-warning"></i>
+                      <i class="fa-solid fa-star text-warning"></i>
+                      <i class="fa-solid fa-star text-warning"></i>
+                      <i class="fa-regular fa-star"></i>
+                    </span>
+                  </div>
+                  <div class="">
+                    <!-- <span class="float-start badge rounded-pill bg-success">{{item.prix}}</span>  -->
+                    <!-- <span *ngIf="item.ispromotion" class="small text-muted " ><i class="small fa-solid fa-rectangle-ad"></i>  </span> -->
+                  </div>
+                  <h5 class="card-title"></h5>
+                  <div class="text-center my-2">
+                    <p>{{item.hotelname}}</p>
+                    <p>{{item.adress }}</p>
+                    <button type="button" class="btn btn-sm btn-primary">
+                       Voir les disponibilites </button>
+                    <!-- <button *ngIf=" " type="button" class="btn btn-sm btn-warning" data-toggle="modal" -->
+                    <!-- data-target="#Modal2"> Make a Reservation </button> -->
+                    <!-- Modal login -->
+                    <!-- <div class="modal modal" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabell"
+                      aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabell"><strong>Information</strong></h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Think To Logging Please!</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div> -->
+                    <!-- end Modal login -->
+                  </div>
+                  <div class=" d-flex justify-content-between mb-1">
+                    <span class="float-start"><i class="far fa-question-circle"></i></span>
+                    <!-- <span class="float-end"><i class="fas fa-plus btn" (click)="addtocart(item,i);">
+                      </i></span> -->
+                    <span (click)="favorit(item)">
+                      <i *ngIf="!item.isFavorite" class="fa-regular fa-heart" style="font-size:22px;"></i>
+                      <i *ngIf="item.isFavorite" class="fa fa-heart" style="font-size:22px;color:red"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+        </div>
+        <!-- <div class="modal-footer" disabled>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+      </div>
+    </div>
+  </div>
+   
+  <div class="modal "  >
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="col-lg-3 col-md-6  col-sm-12 mt-3 " *ngFor="let item of hotels1; let i=index">
+            <div class="card-body">
+              <div class="w-100 d-flex justify-content-between">
+                <span>
+                  Price : {{item.price}}
+                  <span  class="small text-muted ">
+                    <i class="small fa-solid fa-rectangle-ad"></i>
+                  </span>
+                </span>
+                <span class="d-flex ms-4 mt-1">
+                  <i class="fa fa-star text-warning"></i>
+                  <i class="fa-solid fa-star text-warning"></i>
+                  <i class="fa-solid fa-star text-warning"></i>
+                  <i class="fa-solid fa-star text-warning"></i>
+                  <i class="fa-regular fa-star"></i>
+                </span>
+              </div>
+              </div>
+          </div>      
+        </div>
+        <!-- <div class="modal-footer" disabled>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+      </div>
+    </div>
+  </div>
+</div>

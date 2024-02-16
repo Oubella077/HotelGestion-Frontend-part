@@ -1,0 +1,8 @@
+
+.modal {
+    pointer-events: none;
+}
+
+.modal-dialog {
+    pointer-events: all; /* or just use auto */
+}

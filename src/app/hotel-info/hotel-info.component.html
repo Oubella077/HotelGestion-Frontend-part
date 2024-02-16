@@ -1,0 +1,166 @@
+<div class="container py-5">
+    <div class="d-flex justify-content-between">
+        <span class="ms-4">
+            <span class="d-flex ms-4">
+                <h3 class="me-3">{{hotel.name}}</h3>
+                <i class="fa fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-regular fa-star"></i>
+            </span>
+            <p><i class="fa fa-location-dot"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        </span>
+
+        <!-- <button class="btn w-10 h-25 mt-1 btn-primary" > -->
+            <!-- <a href="/hotel/view#chamber"><i class="fa fa-clipboard-check"></i></a> Reserve </button> -->
+            <!-- <a href="/hotel/view#chamber"><i class="fa fa-clipboard-check nav-link"></i>Reserve</a> -->
+            
+    <a class=" w-10 h-25 btn btn-primary" href="/hotel/view#chamber">
+        <i class="fa fa-clipboard-check"></i>  Reserve</a>
+
+    </div>
+    <div class="row pt-2 ms-3 ">
+        <div class="col-4 ">
+            <img class="ms-3 w-100 h-50" src="/assets/11.jpg" alt="">
+            <img class="ms-3  w-100 h-50" src="/assets/11.jpg" alt="">
+        </div>
+        <div class="col-7">
+            <img class="img-fluid" src="/assets/{{hotel.hotelname}}.jpg" alt="">
+        </div>
+    </div>
+    <div class="row p-4">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Laboriosam ex aut reprehenderit quod. Sunt aliquam laborum,
+            in, qui voluptas animi nemo quaerat placeat iusto itaque accusantium, aut quas! Numquam, enim.</p>
+    </div>
+    <div class="row">
+        <h3>Ses points forts</h3>
+        <div class="col-2 mt-2 d-flex">
+            <i class="fa fa-person-swimming mt-1 color"></i>
+            <p class="ms-2">2 piscines</p>
+        </div>
+        <div class="col-2 d-flex ">
+            <i class="fa fa-wifi mt-1"></i>
+            <p class="ms-2">Connexion Wi-Fi gratuite</p>
+        </div>
+        <div class="col-2 d-flex">
+            <i class="fa fa-arrows-to-dot mt-1 color"></i>
+            <p class="ms-2">Spa et centre de bien-être</p>
+        </div>
+        <div class="col-2 d-flex">
+            <i class="fa fa-parking mt-1 color"></i>
+            <p class="ms-2">Parking gratuit</p>
+        </div>
+
+        <div class="col-2 d-flex">
+            <i class="fa fa-booth mt-1 color"></i>
+            <p class="ms-2">Chambres familiales</p>
+        </div>
+        <div class="col-2 d-flex">
+            <i class="fa-solid fa-utensils mt-1 color"></i>
+            <p class="ms-2">4 restaurants</p>
+        </div>
+        <div class="col-2 d-flex">
+            <i class="fa fa-person mt-1 color"></i>
+            <p class="ms-2">Centre de remise en forme</p>
+        </div>
+    </div>
+
+    <div id="chamber"  class="row"  >
+        <h2>Choisissez votre chambre</h2>
+        <div class="col">
+            <div class="card h-60 shadow-sm position-relative">
+
+                <!-- routerLink="/product/view" [state]="{ data: this.item}" -->
+                <span>
+                    <img src="/assets/vinizia.jpg" class="card-img-top" style="height: 250px; cursor: pointer;"
+                        alt=" "></span>
+                <!-- <div class="label-top shadow-sm fs-5 fw-3 mx-auto">{{}}</div> -->
+                <!-- product modal-->
+                <!-- product modal end-->
+                <div class="card-body">
+                    <h4 class="card-title">Chambre Luxe</h4>
+                    <div class="w-100 d-flex justify-content-between">
+                        <span>
+                            Exceptionnel <br>
+                            2 personnes <br>
+                            2 lits 1 place <br>
+                            Petit-déjeuner buffet <br>
+                            Accès Wi-Fi gratuit <br>
+                            35 m²
+                        </span>
+                    </div>
+                    <div class="d-flex justify-content-between my-2">
+                        <span class="fa-solid">Prix : 350 DH</span>
+                        <button type="button" class="btn btn-sm btn-primary">
+                            Reserver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-60 shadow-sm position-relative">
+
+                <!-- routerLink="/product/view" [state]="{ data: this.item}" -->
+                <span routerLink="/hotel/view">
+                    <img src="/assets/vinizia.jpg" class="card-img-top" style="height: 250px; cursor: pointer;"
+                        alt=" "></span>
+                <!-- <div class="label-top shadow-sm fs-5 fw-3 mx-auto">{{}}</div> -->
+                <!-- product modal-->
+                <!-- product modal end-->
+                <div class="card-body">
+                    <h4 class="card-title">Suite</h4>
+                    <div class="w-100 d-flex justify-content-between">
+                        <span>
+                           Superbe <br>
+                           4 personnes <br>
+                           1 lit double un 1 lit rt 2 canapés-lits<br>
+                           Petit-déjeuner buffet <br>
+                           Accès Wi-Fi gratuit <br>
+                           50 m²
+                       </span>
+                       
+
+                    </div>
+                    <div class="d-flex justify-content-between my-2">
+                        <span class="fa-solid">Prix : 250 DH</span>
+                        <button type="button" class="btn btn-sm btn-primary">
+                            Reserver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-60 shadow-sm position-relative">
+                <!-- routerLink="/product/view" [state]="{ data: this.item}" -->
+                <span routerLink="/hotel/view">
+                    <img src="/assets/vinizia.jpg" class="card-img-top" style="height: 250px; cursor: pointer;"
+                        alt=" "></span>
+                <!-- <div class="label-top shadow-sm fs-5 fw-3 mx-auto">{{}}</div> -->
+                <!-- product modal-->
+                <!-- product modal end-->
+                <div class="card-body">
+                    <h4 class="card-title">Chambre Simple</h4>
+                    <div class="w-100 d-flex justify-content-between">
+                        <span>
+                            Superbe <br>
+                            1 personnes <br>
+                            1 lit 1 place <br>
+                            Petit-déjeuner buffet <br>
+                            Accès Wi-Fi gratuit <br>
+                            35 m²
+                        </span>
+                        
+                    </div>
+                    <div class="d-flex justify-content-between my-2">
+                        <span class="fa-solid">Prix : 100 DH</span>
+                        <button type="button" class="btn btn-sm btn-primary">
+                            Reserver</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

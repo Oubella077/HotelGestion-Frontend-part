@@ -1,0 +1,59 @@
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary px-5" style="z-index: 10;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+        </a>
+        <img src="/assets/logo.png" alt="" style="height: 50px; width: 120px;">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+            <!-- <ul class="navbar-nav me-5 ms-auto mb-lg-0">
+               
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Mushroom</a>
+                </li>
+            </ul> -->
+
+            <form class="d-flex me-2"  style="height: 40px;width: 280px; position: relative;">
+                <input class="form-control small " type="search" placeholder="Search"
+                  aria-label="Search">
+                <button class="btn btn-outline-white me-3 " style="border-left: 0;position: absolute; right:0px;" type="submit">
+                    
+                    <i class="fa fa-search"></i></button>
+              </form> 
+
+            <!-- <button class="btn btn-dark me-2" routerLink="login">
+                <i class="fa-regular fa-user me-2"></i> Sign in</button> -->
+                <span *ngIf="!logged" type="button"  class="btn btn-dark w-25" data-bs-toggle="modal"
+          data-bs-target="#myModal" >
+          <i class="fa-regular fa-user me-2" ></i> Login
+            </span>
+            <span *ngIf="logged" (click)="logout()" type="button"  class="btn btn-danger w-25"  >
+            <i class="fa-regular fa-user me-2" ></i> Deconnexion
+              </span>
+            <button class="btn btn-dark me-2 bt" hidden>
+                <i class="fa-regular fa-heart"></i> </button>
+            <!-- <button class="btn btn-success me-2 bt">
+                <i class="fa fa-cart-shopping"></i> </button> -->
+        </div>
+        
+        <!-- Modal -->
+        <div class="modal" id="myModal" data-bs-backdrop="false">
+            <div class="modal-dialog " >
+              <div class="modal-content ps-2 pe-2 " >
+                <div class="modal-header">
+                  <!-- <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1> -->
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Modal body -->
+                <!-- <div class="modal-body"> -->
+                      <app-login></app-login>
+                  
+                <!-- </div> -->
+              </div>
+            </div>
+          </div>
+    </div>
+</nav>

@@ -1,0 +1,43 @@
+<div class="container " style="position: relative;">
+    <div class="row d-flex justify-content-center " style="background-color:#B2EBF9; border-radius: 5% 0 5% 0;">
+        <div class="col-6 ">
+            <h2 class="pt-5 mt-3">Forget Busy Work,
+                Start Next Vacation</h2>
+            <p class="ms-1 ">We provide what you need to enjoy your
+                holiday with family. Time to make another
+                memorable moments.</p>
+        </div>
+        <div class="col-4">
+            <img src="/assets/illu.PNG" style="border-radius: 15% 0;width: 340px;" alt="">
+        </div>
+    </div>
+    <!-- Search location Form -->
+    <div class=" w-70 p-3 rounded " style="background-color: rgb(246, 243, 243); 
+     position: absolute; top: 75%; left: 5%;">
+        <form [formGroup]="ReserveGroup" (ngSubmit)="detecteChange()" class=" d-flex " action="">
+            <div class="d-flex me-4">
+                <i class="fa fa-location-dot fs-4 me-2 text-success"></i>
+                <div>
+                    <h5>Location</h5>
+                    <input class="form-control" value="adress" type="text" formControlName="adress">
+                </div>
+            </div>
+            <div class="d-flex me-4">
+                <i class="fa fa-calendar-days fs-4 me-2 text-success"></i>
+                <div>
+                    <h5>Check In</h5>
+                    <input type="date" class="form-control" formControlName="date_arrive">
+                </div>
+            </div>
+            <div class="d-flex me-5">
+                <i class="fa fa-calendar-days fs-4 me-2 text-success"></i>
+                <div>
+                    <h5>Check Out</h5>
+                    <input type="date" class="form-control" formControlName="date_depart">
+                </div>
+            </div>
+            <span type="submit" (click)="detecteChange()" class="btn h-50 btn-success p-3">
+                <i class="fa fa-search"></i> Search</span>
+        </form>
+    </div>
+</div>
